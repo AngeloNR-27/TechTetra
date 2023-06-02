@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int existeInvOuOppConsecutifs(float T[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        float a = T[i];
+        float b = T[i + 1];
+
+        float somme = a + b;
+        float produit = a * b;
+
+        if (somme == 0 || produit == 1) {
+            return 1; // Vrai
+        }
+    }
+
+    return 0; // Faux
+}
+
+int main() {
+    float T[] = {1.5, -1.5, 2.0, 0.5, 3.0};
+    int n = sizeof(T) / sizeof(T[0]);
+
+    if (existeInvOuOppConsecutifs(T, n)) {
+        printf("Le tableau contient deux nombres consécutifs inverses ou opposes.\n");
+    } else {
+        printf("Le tableau ne contient pas deux nombres consécutifs inverses ni opposes.\n");
+    }
+
+    return 0;
+}
